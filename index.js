@@ -52,3 +52,30 @@ console.log(li1);
 li1[0].style.fontWeight = 'bold';
 //usingtagname
 li[4].style.backgroundColor = 'yellow';
+
+
+//querySelector and querySelectorAll
+
+//Make the 2nd item have green background color
+//Make the 3rd item invisible
+//Using QuerySelectorALL change the font color to green for 2nd item in the item list
+//Choose all the odd elements and make their background green using QuerySelectorALL
+
+//querySelector
+let secondItem = document.querySelector('.list-group-item:nth-child(2)');
+let thirdItem = document.querySelector('.list-group-item:nth-child(3)')
+// console.log(items)
+// secondItem.style.color = 'green';
+thirdItem.style.display = 'none';
+
+//querySelectorAll
+let allItems = document.querySelectorAll('.list-group-item:nth-child(2)');
+let oddItems = document.querySelectorAll('.list-group-item:nth-child(odd)');
+allItems[0].style.color = 'green';
+
+console.log(oddItems);
+for (let i = 0; i < oddItems.length; i++) {
+  oddItems[i].style.backgroundColor = 'green';
+}
+
+
