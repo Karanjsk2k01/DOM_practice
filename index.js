@@ -40,3 +40,15 @@ for (let i = 0; i < list.length; i++) {
   list[i].style.fontWeight = 'bold';
 
 }
+
+//getelementbytagname
+//returns all the tag in the form of array node elements
+let li = document.getElementsByTagName('li');
+//task Add a new li element without the same class Name
+//And try editing it with getelementsbyclassname and then by getelementbytagname
+let li1 = document.getElementsByClassName('list');
+console.log(li1);
+//usingclassname
+li1[0].style.fontWeight = 'bold';
+//usingtagname
+li[4].style.backgroundColor = 'yellow';
