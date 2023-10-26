@@ -47,11 +47,11 @@ let li = document.getElementsByTagName('li');
 //task Add a new li element without the same class Name
 //And try editing it with getelementsbyclassname and then by getelementbytagname
 let li1 = document.getElementsByClassName('list');
-console.log(li1);
+// console.log(li1);
 //usingclassname
-li1[0].style.fontWeight = 'bold';
+// li1[0].style.fontWeight = 'bold';
 //usingtagname
-li[4].style.backgroundColor = 'yellow';
+// li[4].style.backgroundColor = 'yellow';
 
 
 //querySelector and querySelectorAll
@@ -73,9 +73,52 @@ let allItems = document.querySelectorAll('.list-group-item:nth-child(2)');
 let oddItems = document.querySelectorAll('.list-group-item:nth-child(odd)');
 allItems[0].style.color = 'green';
 
-console.log(oddItems);
+// console.log(oddItems);
 for (let i = 0; i < oddItems.length; i++) {
   oddItems[i].style.backgroundColor = 'green';
 }
+
+
+//Creating Nodes and Modifying Dom
+
+//ParentElement
+
+let listItems = document.getElementById('items');
+
+//parentElement
+// console.log(listItems.parentElement);
+//lastelementchild
+// console.log(listItems.children);
+// console.log(listItems.lastElementChild)
+//lastChild
+// console.log(listItems.childNodes);
+// console.log(listItems.lastChild);
+//firstelementchild
+//nextsibling
+// console.log(listItems.nextsibling);
+//previoussibling
+// console.log(listItems.previousElementSibling)
+//createelement,setAttribute,createtesxtnode,appendchild
+let div = document.createElement('div');
+let textNode = document.createTextNode('Hello World');
+div.setAttribute('title', 'Hello');
+div.appendChild(textNode);
+// console.log(div);
+
+let container = document.querySelector('header .contaiheader-titlener');
+let h1 = document.querySelector('header .header-title');
+
+// Insert 'div' before 'h1' within the same parent element (container)
+container.insertBefore(div, h1);
+
+
+//task-2
+let listIems1 = document.querySelector('.list-group-item');
+let list1 = document.createElement('li');
+list1.setAttribute('class', 'list-group-item')
+// console.log(list1);
+list1.textContent = 'Hello World';
+list1.style.fontWeight = 'bold';
+listItems.insertBefore(list1, listIems1);
 
 
