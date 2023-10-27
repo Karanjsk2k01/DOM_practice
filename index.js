@@ -136,14 +136,16 @@ function add(e) {
   e.preventDefault()
   // console.log(e)
   let value = document.getElementById('text-input').value;
-  if (value === '') {
-    alert('Please enter the items');
+  let value1 = document.getElementById('text-desc').value;
+  if (value === '' || value1 === '') {
+    alert('Items or description is not filled !!');
   }
 
   //creating the li tags
   let list = document.createElement('li');
   list.setAttribute('class', 'list-group-item');
   list.appendChild(document.createTextNode(value));
+  list.appendChild(document.createTextNode(` ${value1}`));
 
   //creating the button
   let deleteBtn = document.createElement('button');
@@ -164,5 +166,35 @@ function delete1(e) {
       itemlist.removeChild(list);
     }
   }
+
+}
+
+//filter functionality
+
+let filter = document.getElementById('filter');
+
+filter.addEventListener('keyup', filteritems);
+
+function filteritems(e) {
+
+  //taking the value from input box
+  let text = e.target.value.toLowerCase();
+
+  //getting list
+  let items = document.getElementsByTagName('li');
+  Array.from(items).forEach((item) => {
+    let itemName1 = item.firstChild.textContent;
+    let itemName2 = item.childNodes[1].textContent;
+    let checkFunctionality1 = itemName1.toLowerCase().indexOf(text);
+    let checkFunctionality2 = itemName2.toLowerCase().indexOf(text);
+    if (checkFunctionality1 != -1 || checkFunctionality2 != -1) {
+      item.style.display = 'block';
+    }
+    else {
+      item.style.display = 'none';
+    }
+
+  }
+  );
 
 }
